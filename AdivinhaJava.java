@@ -9,10 +9,11 @@ public class AdivinhaJava {
        
         //Sorteia o número
         Random sorteio = new Random();
-        int numeroSorteado = sorteio.nextInt(11);
+        int numeroSorteado = sorteio.nextInt(101);
     
         Scanner leia = new Scanner(System.in);
         int aux = -1;
+        int numeroTentativas = 0;
         
         /*
         Enquanto o usuário não acertar, fica solicitando um número
@@ -23,6 +24,7 @@ public class AdivinhaJava {
             System.out.println
             ("Informe um número:");
             aux = leia.nextInt();
+            numeroTentativas++;
             
             //Verifica se o usuário acertou
             if (aux == numeroSorteado) {
@@ -31,8 +33,19 @@ public class AdivinhaJava {
             } else {
                 System.out.println
                 ("Você errou! Tente novamente.");
+                
+                if (numeroSorteado > aux) {
+                    System.out.println
+                    ("O número sorteado é maior que "+aux);
+                } else if (numeroSorteado < aux) {
+                    System.out.println("O número sorteado é menor que "+aux);
+                }
+                
             }
         }
+        
+        System.out.println
+        ("Número de tentativas: "+numeroTentativas);
         
     }
     
